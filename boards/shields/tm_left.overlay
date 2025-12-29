@@ -1,4 +1,4 @@
-#include "teclado_mayoraz.dtsi" // The shared dtsi file is included in the overlay
+#include "tm.dtsi" // The shared dtsi file is included in the overlay
 
 // Label of the kscan node in the dtsi
 // I may add extra functions to this half in the future, and if so, will define more pins here
