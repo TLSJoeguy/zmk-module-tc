@@ -1,5 +1,7 @@
-config SHIELD_TECLADO_MAYORAZ_RIGHT
-    def_bool $(shields_list_contains,teclado_mayoraz_right)
+# No whitespace after the comma or in your part name!
+config SHIELD_TM_RIGHT
+    def_bool $(shields_list_contains,tm_right)
 
-config SHIELD_TECLADO_MAYORAZ_LEFT
-    def_bool $(shields_list_contains,teclado_mayoraz_left)
+# No whitespace after the comma or in your part name!
+config SHIELD_TM_LEFT
+    def_bool $(shields_list_contains,tm_left)
