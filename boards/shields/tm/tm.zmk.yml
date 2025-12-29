@@ -1,0 +1,12 @@
+file_format: "1"
+id: tm
+name: Teclado_Mayoraz
+type: shield
+url: https://github.com/TLSJoeguy/zmk-keyboard-tm/
+requires: [nice!nano_v2]
+features:
+  - keys
+  - pointer
+siblings:
+  - tm_left
+  - tm_right
