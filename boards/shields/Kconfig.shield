@@ -1,0 +1,5 @@
+config SHIELD_TECLADO_MAYORAZ_RIGHT
+    def_bool $(shields_list_contains,teclado_mayoraz_right)
+
+config SHIELD_TECLADO_MAYORAZ_LEFT
+    def_bool $(shields_list_contains,teclado_mayoraz_left)
