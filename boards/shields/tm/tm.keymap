@@ -64,26 +64,26 @@
         };
 
 // USER SET MACROS
-        MACRO_1: MACRO_1 {
-        };
-        MACRO_2: MACRO_2 {
-        };
-        MACRO_3: MACRO_3 {
-        };
-        MACRO_4: MACRO_4 {
-        };
-        MACRO_5: MACRO_5 {
-        };
-        MACRO_6: MACRO_6 {
-        };
-        MACRO_7: MACRO_7 {
-        };
-        MACRO_8: MACRO_8 {
-        };
-        MACRO_9: MACRO_9 {
-        };
-        MACRO_10: MACRO_10 {
-        };
+//        MACRO_1: MACRO_1 {
+//        };
+//        MACRO_2: MACRO_2 {
+//        };
+//        MACRO_3: MACRO_3 {
+//        };
+//        MACRO_4: MACRO_4 {
+//        };
+//        MACRO_5: MACRO_5 {
+//        };
+//        MACRO_6: MACRO_6 {
+//        };
+//        MACRO_7: MACRO_7 {
+//        };
+//        MACRO_8: MACRO_8 {
+//        };
+//        MACRO_9: MACRO_9 {
+//        };
+//        MACRO_10: MACRO_10 {
+//        };
 
     };
 
