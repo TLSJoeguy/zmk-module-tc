@@ -2,16 +2,51 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#define QWERTY  0  //Default layer
-#define FUNC    1  //FN key is held
-#define NUMP    2  //Numpad key is toggled
+#define QWERTYMAC  0  //Default layer
+#define QWERTYWIN  1  //Default layer w/ modifier keys for windows
+#define FUNC       2  //FN key is held
+#define NUMP       3  //Numpad key is toggled
 
 / {
+
+    macros {
+        MACRO_SQRT: MACRO_SQRT { // call this macro with &MACRO_SQRT
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp S &kp Q &kp R &kp T &kp LPAR>;
+        };
+
+        MACRO_1: MACRO_1 {
+        };
+        MACRO_2: MACRO_2 {
+        };
+        MACRO_3: MACRO_3 {
+        };
+        MACRO_4: MACRO_4 {
+        };
+        MACRO_5: MACRO_5 {
+        };
+        MACRO_6: MACRO_6 {
+        };
+        MACRO_7: MACRO_7 {
+        };
+        MACRO_8: MACRO_8 {
+        };
+        MACRO_9: MACRO_9 {
+        };
+        MACRO_10: MACRO_10 {
+        };
+
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer { // Layer 0
-            display-name = "Base";
+            display-name = "QWERTY Mac";
             bindings = <
                 &kp ESCAPE	 &kp F1	 &kp F2	 &kp F3	 &kp F4	 &kp F5	 &kp F6	 &kp F7	 &kp F8	 &kp F9	 &kp F10	 &kp F11	 &kp F12	 &kp *	 &kp *	 &kp *LAYERTOGGLE
                 &kp *MACRO1	 &kp GRAVE	 &kp NUMBER_1	 &kp NUMBER_2	 &kp NUMBER_3	 &kp NUMBER_4	 &kp NUMBER_5	 &kp *	 &kp *	 &kp NUMBER_6	 &kp NUMBER_7	 &kp NUMBER_8	 &kp NUMBER_9	 &kp NUMBER_0	 &kp MINUS	 &kp BACKSPACE
@@ -21,7 +56,20 @@
                 &kp *MACRO5	 &kp LEFT_CONTROL	 &mo FUNC	 &kp LEFT_ALT	 &kp LEFT_COMMAND	 &kp *	 &kp SPACE	 &kp *	 &kp *MOUSEBUTTON3	 &kp LEFT_ARROW	 &kp M	 &kp COMMA	 &kp UP_ARROW	 &kp DOWN_ARROW	 &kp RIGHT_ARROW	 &kp RIGHT_CONTROL
             >;
         };
-        function_layer { // Layer 1
+
+        default_layer_win { // Layer 1
+            display-name = "QWERTY Windows";
+            bindings = <
+                &kp ESCAPE	 &kp F1	 &kp F2	 &kp F3	 &kp F4	 &kp F5	 &kp F6	 &kp F7	 &kp F8	 &kp F9	 &kp F10	 &kp F11	 &kp F12	 &kp *	 &kp *	 &kp *LAYERTOGGLE
+                &kp *MACRO1	 &kp GRAVE	 &kp NUMBER_1	 &kp NUMBER_2	 &kp NUMBER_3	 &kp NUMBER_4	 &kp NUMBER_5	 &kp *	 &kp *	 &kp NUMBER_6	 &kp NUMBER_7	 &kp NUMBER_8	 &kp NUMBER_9	 &kp NUMBER_0	 &kp MINUS	 &kp BACKSPACE
+                &kp *MACRO2	 &kp TAB	 &kp Q	 &kp W	 &kp E	 &kp R	 &kp T	 &kp *	 &kp *	 &kp Y	 &kp U	 &kp I	 &kp O	 &kp P	 &kp EQUAL	 &kp BACKSLASH
+                &kp *MACRO3	 &kp CAPSLOCK	 &kp A	 &kp S	 &kp D	 &kp F	 &kp G	 &kp *	 &kp *	 &kp H	 &kp J	 &kp K	 &kp L	 &kp SEMICOLON	 &kp SINGLE_QUOTE	 &kp RETURN
+                &kp *MACRO4	 &kp LEFT_SHIFT	 &kp Z	 &kp X	 &kp C	 &kp V	 &kp B	 &kp *	 &kp F24	 &kp N	 &kp *MOUSELEFT	 &kp *MOUSERIGHT	 &kp PERIOD	 &kp SLASH	 &kp RIGHT_ALT	 &kp RIGHT_SHIFT
+                &kp *MACRO5	 &kp LEFT_CONTROL	 &mo FUNC	 &kp LEFT_ALT	 &kp LEFT_COMMAND	 &kp *	 &kp SPACE	 &kp *	 &kp *MOUSEBUTTON3	 &kp LEFT_ARROW	 &kp M	 &kp COMMA	 &kp UP_ARROW	 &kp DOWN_ARROW	 &kp RIGHT_ARROW	 &kp RIGHT_CONTROL
+            >;
+        };
+        
+        function_layer { // Layer 2
             display-name = "Function";
             bindings = <
                 &kp ESCAPE	 &kp F1	 &kp F2	 &kp F3	 &kp F4	 &kp F5	 &kp F6	 &kp F7	 &kp F8	 &kp F9	 &kp F10	 &kp F11	 &kp F12	 &kp *	 &kp *	 &kp *LAYERTOGGLE
@@ -32,5 +80,18 @@
                 &kp *MACRO5	 &kp LEFT_CONTROL	 &kp K_MENU	 &kp LEFT_ALT	 &kp LEFT_COMMAND	 &kp *	 &kp SPACE	 &kp *	 &kp *MOUSEBUTTON3	 &kp LEFT_ARROW	 &kp M	 &kp COMMA	 &kp UP_ARROW	 &kp DOWN_ARROW	 &kp RIGHT_ARROW	 &kp RIGHT_CONTROL
             >;
         };
+
+        numpad_layer { // Layer 3
+            display-name = "RH Numpad Extended";
+            bindings = <
+                &kp ESCAPE	 &kp F1	 &kp F2	 &kp F3	 &kp F4	 &kp F5	 &kp F6	 &kp F7	 &kp F8	 &kp F9	 &kp F10	 &kp F11	 &kp F12	 &kp *	 &kp *	 &kp *LAYERTOGGLE
+                &kp *MACRO1	 &kp GRAVE	 &kp NUMBER_1	 &kp NUMBER_2	 &kp NUMBER_3	 &kp NUMBER_4	 &kp NUMBER_5	 &kp *	 &kp *	 &kp NUMBER_6	 &kp NUMBER_7	 &kp NUMBER_8	 &kp NUMBER_9	 &kp NUMBER_0	 &kp MINUS	 &kp BACKSPACE
+                &kp *MACRO2	 &kp TAB	 &kp Q	 &kp W	 &kp E	 &kp R	 &kp T	 &kp *	 &kp *	 &kp Y	 &kp U	 &kp I	 &kp O	 &kp P	 &kp EQUAL	 &kp BACKSLASH
+                &kp *MACRO3	 &kp CAPSLOCK	 &kp A	 &kp S	 &kp D	 &kp F	 &kp G	 &kp *	 &kp *	 &kp H	 &kp J	 &kp K	 &kp L	 &kp SEMICOLON	 &kp SINGLE_QUOTE	 &kp RETURN
+                &kp *MACRO4	 &kp LEFT_SHIFT	 &kp Z	 &kp X	 &kp C	 &kp V	 &kp B	 &kp *	 &kp F24	 &kp N	 &kp *MOUSELEFT	 &kp *MOUSERIGHT	 &kp PERIOD	 &kp SLASH	 &kp RIGHT_ALT	 &kp RIGHT_SHIFT
+                &kp *MACRO5	 &kp LEFT_CONTROL	 &mo FUNC	 &kp LEFT_ALT	 &kp LEFT_COMMAND	 &kp *	 &kp SPACE	 &kp *	 &kp *MOUSEBUTTON3	 &kp LEFT_ARROW	 &kp M	 &kp COMMA	 &kp UP_ARROW	 &kp DOWN_ARROW	 &kp RIGHT_ARROW	 &kp RIGHT_CONTROL
+            >;
+        };
+
     };
 };
