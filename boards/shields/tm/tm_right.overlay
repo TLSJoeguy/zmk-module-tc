@@ -1,4 +1,4 @@
-#include "teclado_mayoraz.dtsi" // The shared dtsi file is included in the overlay
+#include "tm.dtsi" // The shared dtsi file is included in the overlay
 
 // Figure out what is needed for the PMW3610 and scrollwheel and add it!
 
