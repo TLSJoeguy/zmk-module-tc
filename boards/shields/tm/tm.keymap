@@ -19,6 +19,51 @@
                 = <&macro_tap &kp S &kp Q &kp R &kp T &kp LPAR>;
         };
 
+// MAC UNDO & REDO MACROS
+        MACRO_UNDO: MACRO_UNDO {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press &kp LCMD>,
+                  <&macro_tap &kp Z>,
+                  <&macro_release &kp LCMD>;
+        };
+        MACRO_REDO: MACRO_REDO {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press &kp LCMD>,
+                  <&macro_tap &kp Y>,
+                  <&macro_release &kp LCMD>;
+        };
+
+// WINDOWS UNDO & REDO MACROS
+        MACRO_UNDO_WIN: MACRO_UNDO_WIN {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press &kp LCTRL>,
+                  <&macro_tap &kp Z>,
+                  <&macro_release &kp LCTRL>;
+        };
+        MACRO_REDO_WIN: MACRO_REDO_WIN {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press &kp LCTRL>,
+                  <&macro_tap &kp Y>,
+                  <&macro_release &kp LCTRL>;
+        };
+
+// USER SET MACROS
         MACRO_1: MACRO_1 {
         };
         MACRO_2: MACRO_2 {
@@ -42,54 +87,35 @@
 
     };
 
+// KEYMAPS
     keymap {
         compatible = "zmk,keymap";
 
         default_layer { // Layer 0
             display-name = "QWERTY Mac";
             bindings = <
-                &kp ESCAPE	 &kp F1	 &kp F2	 &kp F3	 &kp F4	 &kp F5	 &kp F6	 &kp F7	 &kp F8	 &kp F9	 &kp F10	 &kp F11	 &kp F12	 &kp *	 &kp *	 &kp *LAYERTOGGLE
-                &kp *MACRO1	 &kp GRAVE	 &kp NUMBER_1	 &kp NUMBER_2	 &kp NUMBER_3	 &kp NUMBER_4	 &kp NUMBER_5	 &kp *	 &kp *	 &kp NUMBER_6	 &kp NUMBER_7	 &kp NUMBER_8	 &kp NUMBER_9	 &kp NUMBER_0	 &kp MINUS	 &kp BACKSPACE
-                &kp *MACRO2	 &kp TAB	 &kp Q	 &kp W	 &kp E	 &kp R	 &kp T	 &kp *	 &kp *	 &kp Y	 &kp U	 &kp I	 &kp O	 &kp P	 &kp EQUAL	 &kp BACKSLASH
-                &kp *MACRO3	 &kp CAPSLOCK	 &kp A	 &kp S	 &kp D	 &kp F	 &kp G	 &kp *	 &kp *	 &kp H	 &kp J	 &kp K	 &kp L	 &kp SEMICOLON	 &kp SINGLE_QUOTE	 &kp RETURN
-                &kp *MACRO4	 &kp LEFT_SHIFT	 &kp Z	 &kp X	 &kp C	 &kp V	 &kp B	 &kp *	 &kp F24	 &kp N	 &kp *MOUSELEFT	 &kp *MOUSERIGHT	 &kp PERIOD	 &kp SLASH	 &kp RIGHT_ALT	 &kp RIGHT_SHIFT
-                &kp *MACRO5	 &kp LEFT_CONTROL	 &mo FUNC	 &kp LEFT_ALT	 &kp LEFT_COMMAND	 &kp *	 &kp SPACE	 &kp *	 &kp *MOUSEBUTTON3	 &kp LEFT_ARROW	 &kp M	 &kp COMMA	 &kp UP_ARROW	 &kp DOWN_ARROW	 &kp RIGHT_ARROW	 &kp RIGHT_CONTROL
+                &kp ESCAPE  &kp C_BRI_DEC  &kp C_BRI_INC  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_PP  &kp C_NEXT  &kp C_VOL_DN  &kp C_VOL_UP  &tog NUMP  &MACRO_1  &kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &none  &kp ESCAPE  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp MINUS  &kp BACKSPACE  &MACRO_2  &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &none  &kp INSERT  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp EQUAL  &kp BACKSLASH  &MACRO_3  &kp CAPSLOCK  &kp A  &kp S  &kp D  &kp F  &kp G  &none  &kp DELETE  &kp H  &kp J  &kp K  &kp L  &kp SEMICOLON  &kp SINGLE_QUOTE  &kp RETURN  &MACRO_4  &kp LEFT_SHIFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &MACRO_REDO  &none  &kp N  &mkp LCLK  &mkp RCLK  &kp PERIOD  &kp SLASH  &kp RIGHT_COMMAND  &kp RIGHT_SHIFT  &MACRO_5  &kp LEFT_CONTROL  &mo FUNC  &kp LEFT_ALT  &kp LEFT_COMMAND  &tog QWERTYWIN  &kp SPACE  &MACRO_UNDO  &mkp MB3  &kp LEFT_ARROW  &kp M  &kp COMMA  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_ALT
             >;
         };
 
         default_layer_win { // Layer 1
             display-name = "QWERTY Windows";
             bindings = <
-                &kp ESCAPE	 &kp F1	 &kp F2	 &kp F3	 &kp F4	 &kp F5	 &kp F6	 &kp F7	 &kp F8	 &kp F9	 &kp F10	 &kp F11	 &kp F12	 &kp *	 &kp *	 &kp *LAYERTOGGLE
-                &kp *MACRO1	 &kp GRAVE	 &kp NUMBER_1	 &kp NUMBER_2	 &kp NUMBER_3	 &kp NUMBER_4	 &kp NUMBER_5	 &kp *	 &kp *	 &kp NUMBER_6	 &kp NUMBER_7	 &kp NUMBER_8	 &kp NUMBER_9	 &kp NUMBER_0	 &kp MINUS	 &kp BACKSPACE
-                &kp *MACRO2	 &kp TAB	 &kp Q	 &kp W	 &kp E	 &kp R	 &kp T	 &kp *	 &kp *	 &kp Y	 &kp U	 &kp I	 &kp O	 &kp P	 &kp EQUAL	 &kp BACKSLASH
-                &kp *MACRO3	 &kp CAPSLOCK	 &kp A	 &kp S	 &kp D	 &kp F	 &kp G	 &kp *	 &kp *	 &kp H	 &kp J	 &kp K	 &kp L	 &kp SEMICOLON	 &kp SINGLE_QUOTE	 &kp RETURN
-                &kp *MACRO4	 &kp LEFT_SHIFT	 &kp Z	 &kp X	 &kp C	 &kp V	 &kp B	 &kp *	 &kp F24	 &kp N	 &kp *MOUSELEFT	 &kp *MOUSERIGHT	 &kp PERIOD	 &kp SLASH	 &kp RIGHT_ALT	 &kp RIGHT_SHIFT
-                &kp *MACRO5	 &kp LEFT_CONTROL	 &mo FUNC	 &kp LEFT_ALT	 &kp LEFT_COMMAND	 &kp *	 &kp SPACE	 &kp *	 &kp *MOUSEBUTTON3	 &kp LEFT_ARROW	 &kp M	 &kp COMMA	 &kp UP_ARROW	 &kp DOWN_ARROW	 &kp RIGHT_ARROW	 &kp RIGHT_CONTROL
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &MACRO_REDO_WIN  &none  &trans  &trans  &trans  &trans  &trans  &kp RIGHT_ALT  &trans  &trans  &kp LEFT_CONTROL  &trans  &kp LEFT_WIN  &kp LEFT_ALT  &tog QWERTYWIN  &trans  &MACRO_UNDO_WIN  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RIGHT_CONTROL
             >;
         };
         
         function_layer { // Layer 2
             display-name = "Function";
             bindings = <
-                &kp ESCAPE	 &kp F1	 &kp F2	 &kp F3	 &kp F4	 &kp F5	 &kp F6	 &kp F7	 &kp F8	 &kp F9	 &kp F10	 &kp F11	 &kp F12	 &kp *	 &kp *	 &kp *LAYERTOGGLE
-                &kp *MACRO1	 &kp GRAVE	 &kp NUMBER_1	 &kp NUMBER_2	 &kp NUMBER_3	 &kp NUMBER_4	 &kp NUMBER_5	 &kp *	 &kp *	 &kp NUMBER_6	 &kp NUMBER_7	 &kp NUMBER_8	 &kp NUMBER_9	 &kp NUMBER_0	 &kp MINUS	 &kp BACKSPACE
-                &kp *MACRO2	 &kp TAB	 &kp Q	 &kp W	 &kp E	 &kp R	 &kp T	 &kp *	 &kp *	 &kp Y	 &kp U	 &kp I	 &kp O	 &kp P	 &kp EQUAL	 &kp BACKSLASH
-                &kp *MACRO3	 &kp CAPSLOCK	 &kp A	 &kp S	 &kp D	 &kp F	 &kp G	 &kp *	 &kp *	 &kp H	 &kp J	 &kp K	 &kp L	 &kp SEMICOLON	 &kp SINGLE_QUOTE	 &kp RETURN
-                &kp *MACRO4	 &kp LEFT_SHIFT	 &kp Z	 &kp X	 &kp C	 &kp V	 &kp B	 &kp *	 &kp F24	 &kp N	 &kp *MOUSELEFT	 &kp *MOUSERIGHT	 &kp PERIOD	 &kp SLASH	 &kp RIGHT_ALT	 &kp RIGHT_SHIFT
-                &kp *MACRO5	 &kp LEFT_CONTROL	 &kp K_MENU	 &kp LEFT_ALT	 &kp LEFT_COMMAND	 &kp *	 &kp SPACE	 &kp *	 &kp *MOUSEBUTTON3	 &kp LEFT_ARROW	 &kp M	 &kp COMMA	 &kp UP_ARROW	 &kp DOWN_ARROW	 &kp RIGHT_ARROW	 &kp RIGHT_CONTROL
+                &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &MACRO_6  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &MACRO_7  &trans  &trans  &kp PG_UP  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LBKT  &kp RBKT  &MACRO_8  &trans  &kp HOME  &kp PG_DN  &kp END  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &MACRO_9  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &MACRO_10  &trans  &mo FUNC  &trans  &trans  &none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         numpad_layer { // Layer 3
             display-name = "RH Numpad Extended";
             bindings = <
-                &kp ESCAPE	 &kp F1	 &kp F2	 &kp F3	 &kp F4	 &kp F5	 &kp F6	 &kp F7	 &kp F8	 &kp F9	 &kp F10	 &kp F11	 &kp F12	 &kp *	 &kp *	 &kp *LAYERTOGGLE
-                &kp *MACRO1	 &kp GRAVE	 &kp NUMBER_1	 &kp NUMBER_2	 &kp NUMBER_3	 &kp NUMBER_4	 &kp NUMBER_5	 &kp *	 &kp *	 &kp NUMBER_6	 &kp NUMBER_7	 &kp NUMBER_8	 &kp NUMBER_9	 &kp NUMBER_0	 &kp MINUS	 &kp BACKSPACE
-                &kp *MACRO2	 &kp TAB	 &kp Q	 &kp W	 &kp E	 &kp R	 &kp T	 &kp *	 &kp *	 &kp Y	 &kp U	 &kp I	 &kp O	 &kp P	 &kp EQUAL	 &kp BACKSLASH
-                &kp *MACRO3	 &kp CAPSLOCK	 &kp A	 &kp S	 &kp D	 &kp F	 &kp G	 &kp *	 &kp *	 &kp H	 &kp J	 &kp K	 &kp L	 &kp SEMICOLON	 &kp SINGLE_QUOTE	 &kp RETURN
-                &kp *MACRO4	 &kp LEFT_SHIFT	 &kp Z	 &kp X	 &kp C	 &kp V	 &kp B	 &kp *	 &kp F24	 &kp N	 &kp *MOUSELEFT	 &kp *MOUSERIGHT	 &kp PERIOD	 &kp SLASH	 &kp RIGHT_ALT	 &kp RIGHT_SHIFT
-                &kp *MACRO5	 &kp LEFT_CONTROL	 &mo FUNC	 &kp LEFT_ALT	 &kp LEFT_COMMAND	 &kp *	 &kp SPACE	 &kp *	 &kp *MOUSEBUTTON3	 &kp LEFT_ARROW	 &kp M	 &kp COMMA	 &kp UP_ARROW	 &kp DOWN_ARROW	 &kp RIGHT_ARROW	 &kp RIGHT_CONTROL
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LPAR  &kp RPAR  &kp LESS_THAN  &kp GREATER_THAN  &kp CARET  &trans  &tog NUMP  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp TAB  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_DIVIDE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_EQUAL  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MULTIPLY  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &MACRO_SQRT  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_MINUS  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none  &kp BACKSPACE  &trans  &trans  &kp KP_ENTER  &kp KP_PLUS  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_N0  &kp KP_DOT  &trans  &trans  &trans  &trans
             >;
         };
 
