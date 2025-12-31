@@ -64,26 +64,66 @@
         };
 
 // USER SET MACROS
-//        MACRO_1: MACRO_1 {
-//        };
-//        MACRO_2: MACRO_2 {
-//        };
-//        MACRO_3: MACRO_3 {
-//        };
-//        MACRO_4: MACRO_4 {
-//        };
-//        MACRO_5: MACRO_5 {
-//        };
-//        MACRO_6: MACRO_6 {
-//        };
-//        MACRO_7: MACRO_7 {
-//        };
-//        MACRO_8: MACRO_8 {
-//        };
-//        MACRO_9: MACRO_9 {
-//        };
-//        MACRO_10: MACRO_10 {
-//        };
+        MACRO_1: MACRO_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
+        MACRO_2: MACRO_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
+        MACRO_3: MACRO_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
+        MACRO_4: MACRO_4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
+        MACRO_5: MACRO_5 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
+        MACRO_6: MACRO_6 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
+        MACRO_7: MACRO_7 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
+        MACRO_8: MACRO_8 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
+        MACRO_9: MACRO_9 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
+        MACRO_10: MACRO_10 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // # of parameters
+            bindings
+                = <&none>;
+        };
 
     };
 
