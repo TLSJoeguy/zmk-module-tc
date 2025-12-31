@@ -7,13 +7,13 @@ build:
   depends:
   #  - zmk-example-dependency
   # Folder containing a "CMakeLists.txt" (. = root)
-  cmake: .
+#  cmake: .
   # Kconfig filepath
-  kconfig: Kconfig
+#  kconfig: Kconfig
   settings:
     # Folder containing a "boards" folder (. = root)
     board_root: .
     # Folder containing a "dts" folder (. = root)
-    dts_root: .
+#    dts_root: .
     # Folder containing a "snippets" folder (. = root)
-    snippet_root:  .
+#    snippet_root:  .
